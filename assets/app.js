@@ -29,7 +29,7 @@ let previousOverflow = '';
 let scrollScheduled = false;
 
 function updateHeader() {
-  header.classList.toggle('is-compressed', window.scrollY > 50 && !menuOpen);
+  header.classList.toggle('is-compressed', (window.scrollY > 50 || document.body.classList.contains('inner-page')) && !menuOpen);
   header.classList.toggle('menu-is-open', menuOpen);
 }
 
@@ -86,14 +86,16 @@ window.addEventListener('scroll', () => {
 updateHeader();
 
 function focusDestination(link) {
-  const target = document.querySelector(link.getAttribute('href'));
+  const destination = new URL(link.href, location.href);
+  if (destination.origin !== location.origin || destination.pathname !== location.pathname || !destination.hash) return;
+  const target = document.getElementById(decodeURIComponent(destination.hash.slice(1)));
   if (!target) return;
   // Le lien conserve son comportement natif ; le focus suit sa destination.
   target.setAttribute('tabindex', '-1');
   target.focus({preventScroll: true});
 }
 
-for (const link of menu.querySelectorAll('a[href^="#"]')) {
+for (const link of menu.querySelectorAll('a[href]')) {
   link.addEventListener('click', () => {
     setMenu(false, false);
     focusDestination(link);
@@ -118,16 +120,31 @@ document.addEventListener('keydown', event => {
   }
 });
 
-// L'index est construit a partir du HTML du TP. Aucune requete reseau ni base.
+// Index local des six pages. Aucune requete, dependance ou base de donnees.
 const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-const index = [...main.querySelectorAll('h2, h3')].map(heading => {
-  const section = heading.closest('[id]');
-  return {
-    title: heading.textContent.trim().replace(/\s+/g, ' '),
-    text: normalize(section.textContent),
-    target: '#' + section.id,
-  };
-});
+const index = [
+  ['Accueil — FSAT Taza', 'Découvrir le campus et les ressources universitaires.', 'index.html', 'universite campus accueil'],
+  ['La faculté et ses départements', 'Les sept départements de la FSAT.', 'faculte.html#departements', 'biologie chimie mathematique informatique physique mecanique energetique geologie'],
+  ['Sciences de Données', 'Licence · Informatique', 'formations.html#sciences-donnees', 'data science informatique appliquee'],
+  ['Ingénierie des Systèmes d’Information', 'Licence · Informatique', 'formations.html#isi', 'isi informatique logiciel'],
+  ['Mathématiques Appliquées, Modélisation et calcul scientifique', 'Licence · Mathématique', 'formations.html#math-appliquees', 'mathematiques calcul'],
+  ['Mathématiques Fondamentales et Applications', 'Licence · Mathématique', 'formations.html#math-fondamentales', 'mathematiques'],
+  ['Électronique et Signaux', 'Licence · Physique', 'formations.html#electronique-signaux', 'electronique physique'],
+  ['Efficacité énergétique et énergies renouvelables', 'Licence · Mécanique & Énergétique', 'formations.html#energies', 'energies mecanique'],
+  ['Matériaux, Procédés et Analyses Physicochimiques', 'Licence · Chimie', 'formations.html#materiaux', 'materiaux chimie'],
+  ['Ingénierie Agroalimentaire', 'Licence · Biologie', 'formations.html#agroalimentaire', 'biologie alimentation'],
+  ['Sciences Biomédicales', 'Licence · Biologie', 'formations.html#biomedicales', 'biologie sante'],
+  ['Géomatique et Ressources en Eau', 'Licence · Géologie', 'formations.html#geomatique', 'geologie eau'],
+  ['Électronique — Licence d’excellence', 'Avis officiel publié le 2 octobre 2026.', 'formations.html#excellence', 'electronique licence excellence'],
+  ['Systèmes Intelligents et Mobiles (SIM)', 'Master spécialisé · Avis officiel', 'formations.html#sim', 'master sim informatique'],
+  ['Espace étudiant Licence', 'Accès au portail institutionnel de scolarité.', 'services.html#etudiant', 'inscription notes releves scolarite licence'],
+  ['Espace étudiant Master', 'Accès au portail institutionnel du cycle Master.', 'services.html#master', 'inscription notes releves scolarite master'],
+  ['Emplois du temps', 'Consulter les horaires publiés par la faculté.', 'services.html#emplois', 'planning horaires emploi temps cours'],
+  ['Admission USMBA', 'Plateforme universitaire des admissions.', 'services.html#admission', 'concours inscription candidature'],
+  ['Ressources et e-services', 'Les ressources institutionnelles de la faculté.', 'services.html#ressources', 'bibliotheque apprentissage cours'],
+  ['Contact et accès au campus', 'Adresse, téléphone et courriel de la FSAT.', 'contact.html', 'email telephone adresse contact plan carte'],
+  ['Sources et périmètre', 'Cadre pédagogique, sources et crédits du prototype.', 'sources.html', 'web2 web 2 projet auteur credits sources'],
+].map(([title, description, target, keywords]) => ({title, description, target, text: normalize(`${title} ${description} ${keywords}`)}));
 
 function updateSearch() {
   const words = normalize(searchField.value).split(' ').filter(Boolean);
@@ -137,7 +154,7 @@ function updateSearch() {
   const matches = index.filter(item => words.every(word => item.text.includes(word))).slice(0, 8);
   if (!matches.length) {
     const message = document.createElement('p');
-    message.textContent = 'Aucun résultat sur cette page. Essayez « informatique », « électronique » ou « master ».';
+    message.textContent = 'Aucun résultat dans le portail. Essayez « informatique », « électronique » ou « horaires ».';
     searchResults.append(message);
     return;
   }
@@ -145,7 +162,11 @@ function updateSearch() {
     const link = document.createElement('a');
     link.className = 'search-result';
     link.href = item.target;
-    link.textContent = item.title;
+    const title = document.createElement('span');
+    title.textContent = item.title;
+    const description = document.createElement('small');
+    description.textContent = item.description;
+    link.append(title, description);
     link.addEventListener('click', () => {
       setSearch(false, false);
       focusDestination(link);
@@ -161,3 +182,36 @@ document.querySelector('.search-form').addEventListener('submit', event => {
   const result = searchResults.querySelector('a');
   if (result) result.click();
 });
+
+// Catalogue : filtre par mots et cycle, compteur, etat vide et reinitialisation.
+const filterForm = document.getElementById('filter-form');
+if (filterForm) {
+  const query = document.getElementById('formation-query');
+  const cycle = document.getElementById('formation-cycle');
+  const cards = [...document.querySelectorAll('.formation-card')];
+  const status = document.getElementById('filter-status');
+  const empty = document.getElementById('filter-empty');
+  function updateFilters() {
+    const words = normalize(query.value).split(' ').filter(Boolean);
+    let count = 0;
+    for (const card of cards) {
+      const text = normalize(card.dataset.search);
+      const visible = (cycle.value === 'all' || card.dataset.cycle === cycle.value) && words.every(word => text.includes(word));
+      card.hidden = !visible;
+      if (visible) count++;
+    }
+    status.textContent = `${count} formation${count > 1 ? 's' : ''} affichée${count > 1 ? 's' : ''}`;
+    empty.hidden = count > 0;
+  }
+  filterForm.addEventListener('submit', event => { event.preventDefault(); updateFilters(); });
+  query.addEventListener('input', updateFilters);
+  cycle.addEventListener('change', updateFilters);
+  filterForm.addEventListener('reset', event => {
+    event.preventDefault();
+    query.value = '';
+    cycle.value = 'all';
+    updateFilters();
+  });
+  document.getElementById('clear-filters').addEventListener('click', () => { filterForm.reset(); query.focus(); });
+  updateFilters();
+}

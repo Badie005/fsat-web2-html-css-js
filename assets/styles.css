@@ -233,6 +233,7 @@ main section, article[id], li[id], .dispatch-list, #services, #campus { scroll-m
 @media (max-width: 767px) {
   .global-header, .global-header.menu-is-open { padding: 24px 24px 20px; }
   .global-header.is-compressed { padding: 10px 24px; }
+  .global-header.is-compressed .brand { height: 36px; max-width: min(44vw, 230px); }
   .header-inner { gap: 12px; }
   .brand { height: 36px; max-width: min(48vw, 230px); }
   .brand-logo { max-width: 100%; }
