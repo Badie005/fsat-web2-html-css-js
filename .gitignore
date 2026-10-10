@@ -1,0 +1,14 @@
+# Outils et preuves conservés localement, hors du site publié
+server.mjs
+verification/
+VALIDATION.md
+ARCHIVE_REMISE_INVENTAIRE.json
+PUBLICATION_GITHUB.json
+
+# Fichiers locaux
+.env
+.env.*
+node_modules/
+*.log
+Thumbs.db
+.DS_Store
