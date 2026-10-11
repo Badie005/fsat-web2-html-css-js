@@ -1,0 +1,334 @@
+{
+  "verified_on": "2026-10-11",
+  "department_source": "https://fsat.usmba.ac.ma/nos-departements-fsat/",
+  "licence_source": "https://fsat.usmba.ac.ma/licence-fsat/",
+  "schedule_source": "https://fsat.usmba.ac.ma/emplois_fsat/index.php",
+  "services_source": "https://fsat.usmba.ac.ma/e-service/",
+  "departments": [
+    {
+      "slug": "informatique",
+      "name": "Informatique",
+      "code": "INFO",
+      "chef": "Mohamed NEMICHE",
+      "email": "mohamed.nemiche@usmba.ac.ma",
+      "lead": "Du premier algorithme aux applications et à l’analyse des données.",
+      "tags": [
+        "Logiciel",
+        "Données",
+        "Systèmes"
+      ],
+      "schedule": [
+        2,
+        3
+      ],
+      "extra": [
+        "Master spécialisé SIM",
+        "https://fsat.usmba.ac.ma/2026/10/02/concours-dacces-au-cycle-master-specialise-systemes-intelligents-et-mobiles-sim/"
+      ]
+    },
+    {
+      "slug": "mathematique",
+      "name": "Mathématique",
+      "code": "MATH",
+      "chef": "Abdelhai EL AZZOUZI",
+      "email": "abdelhai.elazzouzi@usmba.ac.ma",
+      "lead": "Construire des raisonnements, étudier des structures et modéliser les phénomènes.",
+      "tags": [
+        "Analyse",
+        "Algèbre",
+        "Modélisation"
+      ],
+      "schedule": [
+        4
+      ]
+    },
+    {
+      "slug": "physique",
+      "name": "Physique",
+      "code": "PHYS",
+      "chef": "Abdelaziz AHAITOUF",
+      "email": "abdelaziz.ahaitouf@usmba.ac.ma",
+      "lead": "Comprendre les phénomènes physiques et développer leurs applications électroniques.",
+      "tags": [
+        "Électronique",
+        "Signaux",
+        "Matériaux"
+      ],
+      "schedule": [
+        7
+      ],
+      "extra": [
+        "Licence d’excellence Électronique",
+        "https://fsat.usmba.ac.ma/2026/10/02/licence-dexcellence-electronique/"
+      ]
+    },
+    {
+      "slug": "biologie",
+      "name": "Biologie",
+      "code": "BIO",
+      "chef": "Yahia RHARRABTI",
+      "email": "yahia.rharrabti@usmba.ac.ma",
+      "lead": "Étudier le vivant, de la cellule aux applications alimentaires et biomédicales.",
+      "tags": [
+        "Vivant",
+        "Alimentation",
+        "Santé"
+      ],
+      "schedule": [
+        6
+      ]
+    },
+    {
+      "slug": "chimie",
+      "name": "Chimie",
+      "code": "CHIM",
+      "chef": "Mostafa NAWDALI",
+      "email": "mostafa.nawdali@usmba.ac.ma",
+      "lead": "Explorer la matière, les analyses et les procédés de transformation.",
+      "tags": [
+        "Matière",
+        "Analyses",
+        "Procédés"
+      ],
+      "schedule": [
+        9
+      ]
+    },
+    {
+      "slug": "mecanique-energetique",
+      "name": "Mécanique & Énergétique",
+      "code": "MÉCA",
+      "chef": "Driss ACHEMLAL",
+      "email": "driss.achemlal@usmba.ac.ma",
+      "lead": "Comprendre les systèmes mécaniques et les transformations de l’énergie.",
+      "tags": [
+        "Fluides",
+        "Énergie",
+        "Conception"
+      ],
+      "schedule": [
+        8
+      ]
+    },
+    {
+      "slug": "geologie",
+      "name": "Géologie",
+      "code": "GÉO",
+      "chef": "Ali LHACHMI",
+      "email": "ali.lhachmi@usmba.ac.ma",
+      "lead": "Lire les terrains et étudier les ressources de la Terre et de l’eau.",
+      "tags": [
+        "Terrain",
+        "Cartographie",
+        "Eau"
+      ],
+      "schedule": [
+        5
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "id": "isi",
+      "name": "Ingénierie des Systèmes d’Information",
+      "dept": "informatique",
+      "flyer": 8,
+      "desc": "Une progression vers la conception logicielle, les bases de données et les applications web ou mobiles.",
+      "source": "https://fsat.usmba.ac.ma/wp-content/uploads/2026/07/ISI.png"
+    },
+    {
+      "id": "sciences-donnees",
+      "name": "Sciences de Données",
+      "dept": "informatique",
+      "flyer": 9,
+      "desc": "Un parcours qui associe programmation, méthodes quantitatives et exploitation des données.",
+      "source": "https://fsat.usmba.ac.ma/wp-content/uploads/2026/07/SD.png"
+    },
+    {
+      "id": "math-appliquees",
+      "name": "Mathématiques Appliquées, Modélisation et calcul scientifique",
+      "dept": "mathematique",
+      "flyer": 6,
+      "desc": "L’analyse et les outils informatiques servent à construire et étudier des modèles scientifiques.",
+      "source": "https://fsat.usmba.ac.ma/wp-content/uploads/2026/06/mathematique-appliquee.png"
+    },
+    {
+      "id": "math-fondamentales",
+      "name": "Mathématiques Fondamentales et Applications",
+      "dept": "mathematique",
+      "flyer": 7,
+      "desc": "L’étude des structures mathématiques se poursuit vers la géométrie, les codes et la cryptographie.",
+      "source": "https://fsat.usmba.ac.ma/wp-content/uploads/2026/06/mathematique-fondamentale.png"
+    },
+    {
+      "id": "electronique-signaux",
+      "name": "Électronique et Signaux",
+      "dept": "physique",
+      "flyer": 3,
+      "desc": "Les bases physiques conduisent vers les composants électroniques, les signaux et les transmissions.",
+      "source": "https://fsat.usmba.ac.ma/wp-content/uploads/2026/06/Electronique-et-Signaux.png"
+    },
+    {
+      "id": "agroalimentaire",
+      "name": "Ingénierie Agroalimentaire",
+      "dept": "biologie",
+      "flyer": 0,
+      "desc": "Des sciences du vivant vers les aliments, leurs procédés de transformation et leur qualité.",
+      "source": "https://fsat.usmba.ac.ma/wp-content/uploads/2026/06/Ingenieurie-Agroalimentaire.png"
+    },
+    {
+      "id": "biomedicales",
+      "name": "Sciences Biomédicales",
+      "dept": "biologie",
+      "flyer": 1,
+      "desc": "Les sciences du vivant sont approfondies dans leurs applications à la santé et aux systèmes biologiques.",
+      "source": "https://fsat.usmba.ac.ma/wp-content/uploads/2026/06/Biomedicale-1.png"
+    },
+    {
+      "id": "materiaux",
+      "name": "Matériaux, Procédés et Analyses Physicochimiques",
+      "dept": "chimie",
+      "flyer": 5,
+      "desc": "Le parcours relie les propriétés de la matière aux méthodes d’analyse et aux procédés industriels.",
+      "source": "https://fsat.usmba.ac.ma/wp-content/uploads/2026/06/Chimie-1.png"
+    },
+    {
+      "id": "energies",
+      "name": "Efficacité énergétique et énergies renouvelables",
+      "dept": "mecanique-energetique",
+      "flyer": 4,
+      "desc": "Les bases de physique s’appliquent à la conception de systèmes et à la maîtrise de l’énergie.",
+      "source": "https://fsat.usmba.ac.ma/wp-content/uploads/2026/06/EfficaciteEner.png"
+    },
+    {
+      "id": "geomatique",
+      "name": "Géomatique et Ressources en Eau",
+      "dept": "geologie",
+      "flyer": 2,
+      "desc": "La lecture du terrain et les outils numériques accompagnent l’étude de la Terre et de l’eau.",
+      "source": "https://fsat.usmba.ac.ma/wp-content/uploads/2026/06/Geomatique-et-ressources-en-eau.png"
+    }
+  ],
+  "schedules": [
+    {
+      "kind": "schedule",
+      "label": "Master : Génie Géologique et Minier",
+      "date": "—",
+      "url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/G2M.pdf",
+      "error": "HTTP Error 404: Not Found",
+      "display_name": "Génie Géologique et Minier"
+    },
+    {
+      "kind": "schedule",
+      "label": "Master : Systèmes Intelligents et Mobiles (S3)",
+      "date": "—",
+      "url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/Master%20SIM_S3.pdf",
+      "error": "HTTP Error 404: Not Found",
+      "display_name": "Systèmes Intelligents et Mobiles — S3"
+    },
+    {
+      "kind": "schedule",
+      "label": "Filière Ingénierie des Systèmes d’Information",
+      "date": "11 octobre 2026",
+      "url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/IMIP.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "final_url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/IMIP.pdf",
+      "bytes": 510895,
+      "sha256": "558d5ad50d843b55b3360f97cdfb6c925d2fa3cc9152f6819789b2e9ce1a3d70",
+      "pages": 3,
+      "display_name": "Ingénierie des Systèmes d’Information"
+    },
+    {
+      "kind": "schedule",
+      "label": "Filière Sciences de Données",
+      "date": "11 octobre 2026",
+      "url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/IAPP.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "final_url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/IAPP.pdf",
+      "bytes": 511131,
+      "sha256": "fe4797eff0ecc2ce543f2db7fcd822c8f048d8953ba1216b6368fe963a31de93",
+      "pages": 3,
+      "display_name": "Sciences de Données"
+    },
+    {
+      "kind": "schedule",
+      "label": "Filière Sciences Mathématiques",
+      "date": "11 octobre 2026",
+      "url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/MMIP.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "final_url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/MMIP.pdf",
+      "bytes": 681289,
+      "sha256": "93576ae8130c1f09eb1d49cdb530a3b226f29e87a9fa3e4de59b9b0a71eece24",
+      "pages": 4,
+      "display_name": "Sciences Mathématiques"
+    },
+    {
+      "kind": "schedule",
+      "label": "Filière Géologie",
+      "date": "11 octobre 2026",
+      "url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/GBCG.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "final_url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/GBCG.pdf",
+      "bytes": 510712,
+      "sha256": "78aa139cd757acc343b8e347d34bb16eca999e4b436a07b398f64247b65678d2",
+      "pages": 3,
+      "display_name": "Géologie"
+    },
+    {
+      "kind": "schedule",
+      "label": "Filière Biologie",
+      "date": "11 octobre 2026",
+      "url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/BBCG.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "final_url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/BBCG.pdf",
+      "bytes": 510477,
+      "sha256": "6bce777efdf152de69177b65211e59147dd585bec998cb297315de10285159dd",
+      "pages": 3,
+      "display_name": "Biologie"
+    },
+    {
+      "kind": "schedule",
+      "label": "Filière Physique",
+      "date": "11 octobre 2026",
+      "url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/Physique.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "final_url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/Physique.pdf",
+      "bytes": 510715,
+      "sha256": "ebad7956e58d9d7ba924ec2521685dfa6c9ee2ca37a9c29b2498de9a008885e1",
+      "pages": 3,
+      "display_name": "Physique"
+    },
+    {
+      "kind": "schedule",
+      "label": "Filière Mécanique",
+      "date": "11 octobre 2026",
+      "url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/M%C3%A9canique.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "final_url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/M%C3%A9canique.pdf",
+      "bytes": 511041,
+      "sha256": "3db583b33216f6c44c13e048530dfc0be94b95a86f2512c1e3f2092261c254bb",
+      "pages": 3,
+      "display_name": "Mécanique"
+    },
+    {
+      "kind": "schedule",
+      "label": "Filière Chimie",
+      "date": "11 octobre 2026",
+      "url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/CHPC.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "final_url": "https://fsat.usmba.ac.ma/emplois_fsat/PDF/CHPC.pdf",
+      "bytes": 510944,
+      "sha256": "561189fe26760f5f1ac94f3adfaac3a3613b7c219cc7fe01b2592a65a5f7a699",
+      "pages": 3,
+      "display_name": "Chimie"
+    }
+  ]
+}

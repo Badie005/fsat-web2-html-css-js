@@ -1,0 +1,142 @@
+/* Pages étudiantes : mêmes typographies et couleurs que la maquette Figma. */
+.portal-content .breadcrumbs { flex-wrap: wrap; }
+.portal-content [id] { scroll-margin-top: 105px; }
+.portal-content .department-grid > article { display: flex; flex-direction: column; align-items: flex-start; }
+.portal-content .department-grid .department-head { margin: 20px 0 14px; font-size: 12px; }
+.portal-content .department-grid .text-link { margin-top: auto; padding-top: 10px; color: var(--blue); font-size: 12px; }
+.menu-link { font-size: clamp(26px, 2.5vw, 36px); padding-block: 16px; line-height: 1.15; gap: 12px; }
+.menu-link:nth-child(9) { --menu-delay: 480ms; }
+.portal-content .department-banner { display: grid; grid-template-columns: 190px 1fr 330px; gap: 38px; padding: 40px; border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(120deg, #e8f2fb, #f8fbff); }
+.portal-content .discipline-mark { position: relative; display: grid; align-self: center; place-items: center; height: 170px; overflow: hidden; }
+.portal-content .discipline-mark > span { z-index: 1; color: var(--blue); font: 400 35px/1 var(--serif); letter-spacing: -.04em; }
+.portal-content .orbit { position: absolute; width: 165px; height: 165px; border: 1px solid #aac4db; border-radius: 50%; }
+.portal-content .orbit-one { transform: scaleX(.55) rotate(35deg); }
+.portal-content .orbit-two { transform: scaleY(.55) rotate(35deg); }
+.portal-content .discipline-summary > p:not(.eyebrow) { margin-block: 22px; color: var(--muted); font-size: 14px; }
+.portal-content .tag-list { display: flex; flex-wrap: wrap; gap: 9px; }
+.portal-content .tag-list > span { padding: 6px 12px; border: 1px solid #c5d8e8; border-radius: 30px; color: var(--ink); font-size: 12px; }
+.portal-content .jump-links { display: flex; flex-wrap: wrap; gap: 10px 20px; color: var(--blue); font-size: 12px; }
+.portal-content .jump-links a { text-decoration: underline; text-underline-offset: 4px; }
+.portal-content .department-contact { padding-left: 30px; border-left: 1px solid #cbddea; }
+.portal-content .department-contact h2 { margin-bottom: 16px; font: 500 24px/1.45 var(--serif); letter-spacing: -.02em; }
+.portal-content .department-contact > a { color: var(--blue); font-size: 13px; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: 4px; }
+.portal-content .department-contact .small { margin-top: 18px; font-size: 12px; }
+.portal-content .reading-note { max-width: 830px; margin-bottom: 30px; color: var(--muted); font-size: 14px; }
+.portal-content .programme { margin-bottom: 20px; border: 1px solid var(--line); border-radius: 12px; background: #fff; overflow: hidden; }
+.portal-content .programme summary { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 30px 34px; list-style: none; cursor: pointer; }
+.portal-content .programme summary::-webkit-details-marker { display: none; }
+.portal-content .programme summary:hover { background: #f0f6fc; }
+.portal-content .programme summary .eyebrow { margin-bottom: 12px; }
+.portal-content .programme-title { font: 500 28px/1.25 var(--serif); letter-spacing: -.025em; }
+.portal-content .disclosure-mark { flex-shrink: 0; display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid #b8cfe3; border-radius: 50%; color: var(--blue); font: 300 24px/1 var(--sans); transition: transform 150ms; }
+.portal-content .programme[open] .disclosure-mark { transform: rotate(45deg); }
+.portal-content .programme-body { padding: 0 34px 30px; }
+.portal-content .programme-body > p { max-width: 800px; margin-bottom: 25px; color: var(--muted); font-size: 15px; }
+.portal-content .semester-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; list-style: none; padding: 0; }
+.portal-content .semester-grid > li { padding: 22px; border: 1px solid #e0eaf3; border-radius: 8px; background: #f5f9fd; }
+.portal-content .semester-label { display: block; margin-bottom: 14px; color: var(--blue); font: 500 10px/1.5 var(--mono); letter-spacing: .1em; }
+.portal-content .semester-grid p { color: var(--muted); font-size: 14px; line-height: 1.8; }
+.portal-content .programme-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px 40px; margin-top: 28px; }
+.portal-content .info-callout { margin-top: 30px; padding: 24px 28px; border-left: 3px solid #5588ad; border-radius: 0 8px 8px 0; background: #eaf2fa; }
+.portal-content .info-callout strong { display: block; margin-bottom: 8px; font-weight: 600; font-size: 15px; }
+.portal-content .info-callout p { max-width: 930px; color: var(--muted); font-size: 14px; }
+.portal-content .related-notice { display: flex; align-items: center; justify-content: space-between; gap: 35px; margin-top: 32px; padding: 30px 34px; border: 1px solid var(--line); border-radius: 12px; background: #f0f6fc; }
+.portal-content .related-notice h3 { margin-bottom: 15px; font-size: 28px; }
+.portal-content .related-notice p:not(.eyebrow) { max-width: 650px; color: var(--muted); font-size: 14px; }
+.portal-content .related-notice > a { flex-shrink: 0; }
+.portal-content .schedule-inline > article { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 28px 0; border-block-end: 1px solid var(--line); }
+.portal-content .schedule-inline h3 { margin-block: 12px; font-size: 28px; }
+.portal-content .schedule-inline p { color: var(--muted); font-size: 13px; }
+.portal-content .schedule-inline > article > a { flex-shrink: 0; }
+.portal-content .student-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.portal-content .student-steps > article { display: flex; flex-direction: column; align-items: flex-start; padding: 30px; border: 1px solid var(--line); border-radius: 12px; background: white; }
+.portal-content .student-steps h3 { margin-bottom: 22px; }
+.portal-content .student-steps p { margin-bottom: 30px; color: var(--muted); font-size: 14px; }
+.portal-content .student-steps a { margin-top: auto; font-size: 12px; }
+.portal-content .source-panel { padding: 32px 36px; border: 1px solid var(--line); border-radius: 12px; background: #eff5fb; }
+.portal-content .source-panel h2 { margin-bottom: 25px; font-size: 32px; }
+.portal-content .source-panel > p:not(.eyebrow) { color: var(--muted); font-size: 14px; }
+.portal-content .source-panel ul { display: flex; flex-wrap: wrap; gap: 12px 34px; margin: 24px 0; list-style: none; padding: 0; }
+.portal-content .source-panel a { color: var(--blue); font-size: 12px; }
+.portal-content .source-panel p a { text-decoration: underline; text-underline-offset: 4px; }
+.portal-content .department-switcher { display: flex; flex-wrap: wrap; gap: 15px 35px; margin-top: 34px; font-size: 13px; }
+.portal-content .utility-overview { display: grid; grid-template-columns: 1fr 1fr 1.3fr; align-items: center; gap: 34px; margin-bottom: 65px; padding: 30px 36px; border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(115deg, #e9f2fb, #f4f8fd); }
+.portal-content .overview-number { font: 400 46px/1.2 var(--serif); letter-spacing: -.04em; }
+.portal-content .utility-overview p { color: var(--muted); font-size: 13px; margin-top: 12px; }
+.portal-content .schedule-grid, .portal-content .resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.portal-content .schedule-card, .portal-content .resource-card { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 30px; border: 1px solid var(--line); border-radius: 12px; background: white; transition: box-shadow 180ms, border-color 180ms; }
+.portal-content .schedule-card:hover, .portal-content .resource-card:hover { border-color: #a5c4de; box-shadow: 0 9px 26px rgb(11 37 69 / .06); }
+.portal-content .document-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; margin-bottom: 28px; }
+.portal-content .document-icon { display: grid; place-items: center; width: 42px; height: 50px; border: 1px solid #adc9e0; border-radius: 4px 10px 4px 4px; background: #eef5fb; color: var(--blue); font: 500 10px/1 var(--mono); }
+.portal-content .status-badge { display: inline-block; padding: 5px 9px; border-radius: 4px; background: #e7f2ef; color: #235447; font: 500 9px/1.6 var(--mono); letter-spacing: .025em; }
+.portal-content .status-pending { background: #f4efe5; color: #665332; }
+.portal-content .schedule-card .eyebrow, .portal-content .resource-card .eyebrow { margin-bottom: 14px; font-size: 9px; }
+.portal-content .schedule-card h3, .portal-content .resource-card h3 { margin-bottom: 18px; font-size: 27px; line-height: 1.25; overflow-wrap: anywhere; }
+.portal-content .schedule-card > p:not(.eyebrow), .portal-content .resource-card > p:not(.eyebrow) { margin-bottom: 20px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.portal-content .schedule-card .document-date { font-size: 11px; }
+.portal-content .document-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; margin-top: auto; padding-top: 12px; }
+.portal-content .document-actions .button { font-size: 12px; }
+.portal-content .preview-button { align-items: center; gap: 14px; color: var(--blue); font: 500 12px/1.6 var(--sans); }
+.portal-content .preview-button:hover { text-decoration: underline; text-underline-offset: 4px; }
+.portal-content .schedule-card.unavailable { background: #f8fafc; }
+.portal-content .resource-card > .status-badge { margin-bottom: 25px; }
+.portal-content .resource-card > a { margin-top: auto; padding-top: 14px; color: var(--blue); font-size: 12px; }
+.portal-content .resource-nav { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 55px; }
+.portal-content .resource-nav a { padding: 13px 18px; border: 1px solid #bcd1e5; border-radius: 7px; color: var(--blue); font-size: 13px; }
+.portal-content .resource-nav a:hover { background: #eaf2fa; }
+.portal-content .support-panel { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: center; margin-block: 60px; padding: 40px; border-radius: 12px; background: var(--navy); color: var(--ice); }
+.portal-content .support-panel .eyebrow, .portal-content .support-panel p { color: #c1d7eb; }
+.portal-content .support-panel h2 { margin-bottom: 24px; font-size: 37px; }
+.portal-content .support-panel p:not(.eyebrow) { font-size: 14px; }
+.portal-content .support-panel > div:last-child { display: flex; align-items: flex-start; flex-direction: column; gap: 24px; }
+.portal-content .support-panel .button { background: #edf5fc; color: var(--navy); border-color: #edf5fc; }
+.portal-content .support-panel a:hover { color: #b8daf5; }
+.portal-content .support-panel .button:hover { color: var(--blue); }
+.portal-content .pdf-preview { margin-top: 45px; padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: #eaf2fa; }
+.portal-content .preview-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
+.portal-content .preview-heading h2 { font-size: 28px; }
+.portal-content .pdf-preview iframe { display: block; width: 100%; height: 700px; margin-top: 22px; border: 1px solid #bdd1e3; border-radius: 7px; background: white; }
+.portal-content .empty-state { margin-top: 25px; }
+
+@media (max-width: 1100px) {
+  .portal-content .department-banner { grid-template-columns: 1fr 1fr; gap: 28px; padding: 32px; }
+  .portal-content .discipline-mark { display: none; }
+  .portal-content .schedule-grid, .portal-content .resource-grid { grid-template-columns: repeat(2, 1fr); }
+  .portal-content .semester-grid { grid-template-columns: repeat(2, 1fr); }
+  .portal-content .student-steps { gap: 20px; }
+  .portal-content .student-steps > article { padding: 25px; }
+  .portal-content .utility-overview { grid-template-columns: 1fr 1fr; gap: 26px; }
+  .portal-content .utility-overview > div:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+  .portal-content .department-banner { grid-template-columns: 1fr; padding: 25px; }
+  .portal-content .department-contact { border-left: 0; border-top: 1px solid #cbddea; padding: 24px 0 0; }
+  .portal-content .department-contact h2 { font-size: 26px; }
+  .portal-content .department-grid h3 { font-size: 25px; }
+  .portal-content .programme summary { padding: 24px; gap: 20px; }
+  .portal-content .programme-title { font-size: 25px; }
+  .portal-content .programme-body { padding: 0 24px 25px; }
+  .portal-content .semester-grid, .portal-content .student-steps, .portal-content .schedule-grid, .portal-content .resource-grid { grid-template-columns: 1fr; }
+  .portal-content .semester-grid > li { padding: 20px; }
+  .portal-content .schedule-inline > article, .portal-content .related-notice { align-items: flex-start; flex-direction: column; gap: 24px; }
+  .portal-content .related-notice, .portal-content .source-panel { padding: 26px; }
+  .portal-content .schedule-inline h3 { font-size: 26px; }
+  .portal-content .info-callout { padding: 22px; }
+  .portal-content .utility-overview { gap: 26px 20px; margin-bottom: 42px; padding: 26px; }
+  .portal-content .overview-number { font-size: 39px; }
+  .portal-content .utility-overview p { font-size: 12px; }
+  .portal-content .schedule-card, .portal-content .resource-card { padding: 28px; }
+  .portal-content .resource-nav { gap: 10px; margin-bottom: 40px; }
+  .portal-content .resource-nav a { font-size: 12px; padding: 11px 14px; }
+  .portal-content .support-panel { grid-template-columns: 1fr; gap: 30px; padding: 28px; margin-block: 42px; }
+  .portal-content .support-panel h2 { font-size: 33px; }
+  .portal-content .pdf-preview { padding: 20px; }
+  .portal-content .preview-heading { align-items: flex-start; flex-direction: column; }
+  .portal-content .pdf-preview iframe { height: 500px; }
+}
+@media print {
+  .portal-content details { break-inside: avoid; }
+  .portal-content .pdf-preview, .portal-content .document-actions button { display: none; }
+  .portal-content .support-panel { background: white; color: var(--ink); border: 1px solid var(--line); }
+  .portal-content .support-panel p, .portal-content .support-panel .eyebrow { color: var(--muted); }
+}

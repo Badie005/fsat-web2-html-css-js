@@ -120,7 +120,7 @@ document.addEventListener('keydown', event => {
   }
 });
 
-// Index local des six pages. Aucune requete, dependance ou base de donnees.
+// Index local du portail. Aucune requete ni base de donnees pour la recherche.
 const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const index = [
   ['Accueil — FSAT Taza', 'Découvrir le campus et les ressources universitaires.', 'index.html', 'universite campus accueil'],
@@ -139,9 +139,23 @@ const index = [
   ['Systèmes Intelligents et Mobiles (SIM)', 'Master spécialisé · Avis officiel', 'formations.html#sim', 'master sim informatique'],
   ['Espace étudiant Licence', 'Accès au portail institutionnel de scolarité.', 'services.html#etudiant', 'inscription notes releves scolarite licence'],
   ['Espace étudiant Master', 'Accès au portail institutionnel du cycle Master.', 'services.html#master', 'inscription notes releves scolarite master'],
-  ['Emplois du temps', 'Consulter les horaires publiés par la faculté.', 'services.html#emplois', 'planning horaires emploi temps cours'],
+  ['Emplois du temps', 'PDF officiels de la session hiver 2026/2027.', 'emplois-du-temps.html', 'planning horaires emploi temps cours pdf'],
   ['Admission USMBA', 'Plateforme universitaire des admissions.', 'services.html#admission', 'concours inscription candidature'],
-  ['Ressources et e-services', 'Les ressources institutionnelles de la faculté.', 'services.html#ressources', 'bibliotheque apprentissage cours'],
+  ['Ressources et e-services', 'Accès étudiants, documentation et services du campus.', 'ressources.html', 'bibliotheque apprentissage cours ressources'],
+  ['Département Informatique', 'Responsable : Pr. Mohamed Nemiche. Deux parcours de licence.', 'departement-informatique.html', 'logiciel informatique nemiche'],
+  ['Département Mathématique', 'Responsable : Pr. Abdelhai El Azzouzi. Deux parcours de licence.', 'departement-mathematique.html', 'mathematiques calcul modelisation azzouzi'],
+  ['Département Physique', 'Responsable : Pr. Abdelaziz Ahaitouf. Électronique et Signaux.', 'departement-physique.html', 'physique electronique ahaitouf'],
+  ['Département Biologie', 'Responsable : Pr. Yahia Rharrabti. Agroalimentaire et sciences biomédicales.', 'departement-biologie.html', 'biologie sante rharrabti'],
+  ['Département Chimie', 'Responsable : Pr. Mostafa Nawdali. Matériaux et procédés.', 'departement-chimie.html', 'chimie materiaux nawdali'],
+  ['Département Mécanique & Énergétique', 'Responsable : Pr. Driss Achemlal. Parcours énergétique.', 'departement-mecanique-energetique.html', 'mecanique energie renouvelable achemlal'],
+  ['Département Géologie', 'Responsable : Pr. Ali Lhachmi. Géomatique et Ressources en Eau.', 'departement-geologie.html', 'geologie eau terrain lhachmi'],
+  ['Moodle et supports de cours', 'Accès spécifique à demander à votre enseignant.', 'ressources.html#moodle', 'moodle apprentissage devoir cours'],
+  ['Bibliothèque de la faculté', 'Catalogue annoncé : accès spécifique à préciser.', 'ressources.html#bibliotheque', 'bibliotheque catalogue livres prets'],
+  ['Messagerie académique', 'Obtenir le bon accès auprès de la faculté.', 'ressources.html#messagerie', 'mail email compte courriel'],
+  ['Campus connecté', 'Aide pour la connexion Wi-Fi.', 'ressources.html#wifi', 'wifi connexion internet campus'],
+  ['Documentation IMIST', 'Ressources scientifiques et accès à distance.', 'ressources.html#imist', 'imist documentation article recherche revue'],
+  ['Doctorat : avis et démarches', 'Accès à la rubrique officielle de la FSAT.', 'ressources.html#recherche', 'doctorat these recherche soutenance'],
+  ['Calendrier et annonces', 'Dates à consulter dans les avis officiels.', 'ressources.html#calendrier', 'calendrier date inscription examen'],
   ['Contact et accès au campus', 'Adresse, téléphone et courriel de la FSAT.', 'contact.html', 'email telephone adresse contact plan carte'],
   ['Sources et périmètre', 'Cadre pédagogique, sources et crédits du prototype.', 'sources.html', 'web2 web 2 projet auteur credits sources'],
 ].map(([title, description, target, keywords]) => ({title, description, target, text: normalize(`${title} ${description} ${keywords}`)}));
@@ -215,3 +229,79 @@ if (filterForm) {
   document.getElementById('clear-filters').addEventListener('click', () => { filterForm.reset(); query.focus(); });
   updateFilters();
 }
+
+// Filtres des horaires et ressources : le contenu complet reste dans le HTML.
+for (const form of document.querySelectorAll('[data-list-filter]')) {
+  const query = form.querySelector('[data-query]');
+  const category = form.querySelector('[data-category]');
+  const cards = [...document.getElementsByClassName(form.dataset.listFilter)];
+  const count = document.getElementById(form.dataset.count);
+  const empty = document.getElementById(form.dataset.empty);
+  function filterList() {
+    const words = normalize(query.value).split(' ').filter(Boolean);
+    let visible = 0;
+    let available = 0;
+    for (const card of cards) {
+      const match = (!category.value || card.dataset.category === category.value)
+        && words.every(word => normalize(card.dataset.search).includes(word));
+      card.hidden = !match;
+      if (match) {
+        visible += 1;
+        if (!card.classList.contains('unavailable')) available += 1;
+      }
+    }
+    count.textContent = form.dataset.listFilter === 'schedule-card'
+      ? `${visible} document${visible !== 1 ? 's' : ''} référencé${visible !== 1 ? 's' : ''} · ${available} disponible${available !== 1 ? 's' : ''}`
+      : `${visible} ressource${visible !== 1 ? 's' : ''}`;
+    empty.hidden = visible !== 0;
+  }
+  form.addEventListener('submit', event => event.preventDefault());
+  query.addEventListener('input', filterList);
+  category.addEventListener('change', filterList);
+  form.addEventListener('reset', () => requestAnimationFrame(filterList));
+  document.querySelector(`[data-clear="${form.dataset.listFilter}"]`).addEventListener('click', () => {
+    form.reset();
+    query.focus();
+  });
+  filterList();
+}
+
+// L'aperçu ne contacte le serveur officiel qu'après l'action de l'étudiant.
+const preview = document.getElementById('pdf-preview');
+if (preview) {
+  const viewer = document.getElementById('schedule-viewer');
+  const title = document.getElementById('pdf-preview-title');
+  const close = document.getElementById('close-preview');
+  let trigger;
+  for (const button of document.querySelectorAll('[data-pdf]')) {
+    button.addEventListener('click', () => {
+      const url = new URL(button.dataset.pdf);
+      if (url.origin !== 'https://fsat.usmba.ac.ma' || !url.pathname.startsWith('/emplois_fsat/PDF/')) return;
+      trigger = button;
+      title.textContent = button.dataset.title;
+      viewer.title = `Emploi du temps — ${button.dataset.title}`;
+      viewer.src = url.href;
+      preview.hidden = false;
+      close.focus({preventScroll:true});
+      preview.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',block:'start'});
+    });
+  }
+  close.addEventListener('click', () => {
+    preview.hidden = true;
+    viewer.removeAttribute('src');
+    if (trigger) trigger.focus();
+  });
+}
+
+// Une URL de parcours révèle son panneau, y compris lors d'un accès direct.
+function revealProgramme() {
+  const id = location.hash.slice(1);
+  if (!id) return;
+  let target;
+  try { target = document.getElementById(decodeURIComponent(id)); } catch { return; }
+  if (!target) return;
+  const details = target.closest('details');
+  if (details) details.open = true;
+}
+window.addEventListener('hashchange', revealProgramme);
+revealProgramme();
